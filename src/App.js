@@ -1,8 +1,24 @@
 import { color } from "./theme/color";
+import image1 from "./assets/6342519.png";
 
 const App = () => {
   return (
-    <div>
+    <div style={{ position: "relative", zIndex: 0 }}>
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: -1,
+          opacity: 0.2,
+          filter: "invert(1)",
+          backgroundImage:
+            "url(https://t4.ftcdn.net/jpg/08/06/61/13/360_F_806611336_V3HIP8zmPy253jEQuAqeV9d7GUfdniny.jpg)",
+        }}
+      />
+
       <Header />
       <Main />
       <AdvancedTechnologySection />
@@ -10,6 +26,7 @@ const App = () => {
       <WhatWeHave />
       <Solutions />
       <WhyChoose />
+      <Latest />
       <Footer />
     </div>
   );
@@ -64,7 +81,10 @@ const Header = () => {
             justifyContent: "center",
           }}
         >
-          <p>+212 707 123 456</p>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <i className="fi fi-rs-phone-call" style={{ fontSize: 16 }} />
+            <p>+212 707 123 456</p>
+          </div>
           <p
             style={{
               borderRadius: 60,
@@ -73,9 +93,19 @@ const Header = () => {
               backgroundColor: color.black,
             }}
           >
-            Login
+            Devis Gratuit
           </p>
-          <p>Icon</p>
+          <i
+            style={{
+              width: 36,
+              height: 36,
+              fontSize: 16,
+              borderRadius: 60,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            className="fi fi-rs-bars-staggered"
+          />
         </div>
       </header>
     </div>
@@ -155,9 +185,10 @@ const Main = () => {
             textAlign: "end",
             height: "fit-content",
             justifyContent: "end",
+            justifyitems: "center",
           }}
         >
-          <h1>Image</h1>
+          <img src={image1} alt="image1" style={{ width: "100%" }} />
           <p>"WE ARE ON TOP OF USING ADVANCE TECHNOLOGY"</p>
         </div>
       </main>
@@ -175,8 +206,6 @@ const Main = () => {
         <span style={textStyles}>Advance API</span> |
         <span style={textStyles}>Vehicle Management</span> |
         <span style={textStyles}>E-Ticket ERP</span> |
-        {/* Note: The image shows the text getting cut off on the right, 
-            so these might not be fully visible depending on exact placement */}
         <span style={textStyles}>Dynamic Price Engine</span> |
         <span style={textStyles}>Magic Box</span> |
         <span style={textStyles}>Cargo</span>
@@ -198,7 +227,7 @@ const AdvancedTechnologySection = () => {
     padding: "0 20px",
     boxSizing: "border-box",
     transformOrigin: "center center", // Important for rotation/skewing
-    color: "#c2dd75",
+    color: color.green,
   };
 
   const textStyles = {
@@ -314,10 +343,11 @@ const About = () => {
           padding: "16px 0",
           fontSize: 16,
           gridTemplateColumns: "repeat(2,1fr)",
+          alignItems: "center",
         }}
       >
         <div style={{ gap: 32, display: "grid", height: "fit-content" }}>
-          <p style={{ fontSize: 38, fontWeight: 600 }}>Image </p>
+          <img src={image1} alt="image1" style={{ width: "100%" }} />
         </div>
 
         <div style={{ gap: 32, display: "grid", height: "fit-content" }}>
@@ -325,7 +355,13 @@ const About = () => {
             Travel ERP solution is one of the emerging offshoot for the Road
             Travel Industry
           </p>
-          <p style={{ color: color.darkGray }}>
+          <p
+            style={{
+              color: color.darkGray,
+              textAlign: "justify",
+              lineHeight: 1.5,
+            }}
+          >
             Infinity Transoft Solution Pvt Ltd is India's one of the most
             exceptional Bus Ticket Booking Engine & ERP solution provider.
             Travels and Tourism using Road is one of the esteemed businesses
@@ -333,7 +369,13 @@ const About = () => {
             for a long time and left a lot to be craved in terms of efficiency,
             and human errors. There are two major aspects of any travel process.
           </p>
-          <p style={{ color: color.darkGray }}>
+          <p
+            style={{
+              color: color.darkGray,
+              textAlign: "justify",
+              lineHeight: 1.5,
+            }}
+          >
             The first one is ticketing, and the second is online sales and
             promotion of the business. In those two aspects, Ticketing is one of
             the major hassles for most of the individual transporters because
@@ -372,14 +414,19 @@ const WhatWeHave = () => {
   ];
 
   return (
-    <div style={{ backgroundColor: "#e9e5e5" }}>
+    <div
+      style={{
+        border: "1px solid" + color.gray,
+        backgroundColor: color.lightGray,
+      }}
+    >
       <div>
         <div
           style={{
             fontSize: 16,
             maxWidth: 1200,
             padding: "100px 0",
-            margin: "0 auto 100px auto",
+            margin: "0 auto",
           }}
         >
           <div
@@ -418,15 +465,21 @@ const Solutions = () => {
     <div style={{}}>
       <div
         style={{
+          fontSize: 16,
           maxWidth: 1200,
           display: "grid",
-          margin: "0 auto 50px auto",
-          padding: "16px 0",
-          fontSize: 16,
+          margin: "100px auto",
           justifyItems: "center",
         }}
       >
-        <div style={{ gap: 16, display: "grid", height: "fit-content" }}>
+        <div
+          style={{
+            gap: 16,
+            justifyItems: "center",
+            display: "grid",
+            height: "fit-content",
+          }}
+        >
           <p>ITS Offering</p>
           <p
             style={{
@@ -443,18 +496,18 @@ const Solutions = () => {
 
       <div
         style={{
-          margin: "0 0 100px 0",
           gap: 0,
           display: "grid",
+          margin: "0 0 100px 0",
           gridTemplateColumns: "repeat(3,1fr)",
         }}
       >
         <p
           style={{
             fontSize: 18,
-            borderRadius: "0 60px 60px 0",
             textAlign: "center",
             padding: "32px 64px",
+            borderRadius: "0 60px 60px 0",
             border: "1px solid" + color.black,
           }}
         >
@@ -475,9 +528,9 @@ const Solutions = () => {
         <p
           style={{
             fontSize: 18,
-            borderRadius: "60px 0 0 60px",
             textAlign: "center",
             padding: "32px 64px",
+            borderRadius: "60px 0 0 60px",
             border: "1px solid" + color.black,
           }}
         >
@@ -487,16 +540,23 @@ const Solutions = () => {
 
       <div
         style={{
+          gap: 32,
+          fontSize: 16,
           maxWidth: 1200,
           display: "grid",
+          alignItems: "center",
           margin: "0 auto 100px auto",
-          padding: "16px 0",
-          fontSize: 16,
           gridTemplateColumns: "repeat(2,1fr)",
         }}
       >
         <div style={{ gap: 32, display: "grid", height: "fit-content" }}>
-          <p style={{ color: color.darkGray }}>
+          <p
+            style={{
+              color: color.darkGray,
+              textAlign: "justify",
+              lineHeight: 1.5,
+            }}
+          >
             We at Infinity Transoft Solution, are dedicated toward providing the
             best in class digital service in ticket booking across various
             inventories. Our sophisticatedly designed program provides you with
@@ -508,8 +568,12 @@ const Solutions = () => {
 
           <div style={{ gap: 8, display: "grid" }}>
             {menu.map((item) => (
-              <p href={item.path} key={item}>
-                → {item}
+              <p
+                href={item.path}
+                key={item}
+                style={{ display: "flex", gap: 8, alignItems: "center" }}
+              >
+                <i class="fi fi-ts-arrow-alt-right"></i> {item}
               </p>
             ))}
           </div>
@@ -524,11 +588,7 @@ const Solutions = () => {
             justifyContent: "end",
           }}
         >
-          <img
-            style={{ width: "100%" }}
-            alt=""
-            src="https://img.freepik.com/free-vector/modern-desktop-compute-concept-illustration_114360-12156.jpg?t=st=1747946465~exp=1747950065~hmac=bbcd8c51aaad89463aadd170f95e3be0df7a65f7c7c00410a696b50604caefff&w=1380"
-          />
+          <img src={image1} alt="image1" style={{ width: "70%" }} />
         </div>
       </div>
     </div>
@@ -538,27 +598,37 @@ const Solutions = () => {
 const WhyChoose = () => {
   const menu = [
     {
+      icon: "fi fi-ts-galaxy-planet",
       title: "Booking Engine System",
       description:
         "World's largest & fastest 4 inventory Booking Engine System",
     },
     {
+      icon: "fi fi-ts-channel",
       title: "All in One Place",
       description:
         "All-In-One place management for Inter-city & Intra-city bus booking, Cargo Booking, Bus Maintenance System, Expense Management Module, Vehicle Hire Management.",
     },
     {
+      icon: "fi fi-ts-track",
       title: "Live Bus Tracking",
       description: "Real-Time Live Bus Tracking Facility",
     },
     {
+      icon: "fi fi-ts-bus",
       title: "Records from Beginning",
       description:
         "800+ Bus Company, 14000+ Bus Schedules, 2,00,000+ Daily PNRs, 15 Billion+ Successful Traveled Passengers.",
     },
   ];
   return (
-    <div style={{ color: color.white, backgroundColor: color.black }}>
+    <div
+      style={{
+        color: color.white,
+        backgroundColor: color.black,
+        padding: "50px 0",
+      }}
+    >
       <div
         style={{
           maxWidth: 1200,
@@ -570,7 +640,7 @@ const WhyChoose = () => {
         }}
       >
         <div style={{ gap: 16, display: "grid", height: "fit-content" }}>
-          <p style={{ color: color.yellowGreen }}>Why Choose Us</p>
+          <p style={{ color: color.green }}>Why Choose Us</p>
           <p style={{ fontSize: 38, fontWeight: 500 }}>
             We proudly offer our services
           </p>
@@ -586,7 +656,9 @@ const WhyChoose = () => {
         >
           {menu.map((item, index) => (
             <div style={{ display: "grid", height: "fit-content", gap: 32 }}>
-              <p style={{ fontSize: 64 }}>Image</p>
+              <p style={{ fontSize: 64 }}>
+                <i className={item.icon} />
+              </p>
               <p style={{ fontSize: 18 }}>{item.title}</p>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <hr style={{ width: "100%", height: 0 }} />
@@ -595,7 +667,7 @@ const WhyChoose = () => {
                     fontSize: 11,
                     width: 24,
                     height: 24,
-                    color: color.yellowGreen,
+                    color: color.green,
                     borderRadius: 80,
                     border: "1px solid" + color.darkGray,
                     display: "flex",
@@ -606,7 +678,103 @@ const WhyChoose = () => {
                   0{index + 1}
                 </span>
               </div>
-              <p style={{ fontSize: 13 }}>{item.description}</p>
+              <p style={{ fontSize: 13, lineHeight: 1.5 }}>
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Latest = () => {
+  const dates = [
+    {
+      year: 2019,
+      event: "Dynamic Price Engine",
+    },
+    {
+      year: 2019,
+      event:
+        "Wakeup Call Facilities for waking your passenger before ample journey time!",
+    },
+    {
+      year: 2020,
+      event: "Now know your future income using Occupancy Forecasting!",
+    },
+    {
+      year: 2020,
+      event:
+        "Get person relationship with your passenger by Last-mile Connectivity / Pickup man Management",
+    },
+    {
+      year: 2022,
+      event: "Dynamic QR Code",
+    },
+  ];
+
+  return (
+    <div style={{ backgroundColor: color.white }}>
+      <div
+        style={{
+          fontSize: 16,
+          maxWidth: 1200,
+          margin: "0 auto",
+          padding: "100px 0",
+          display: "grid",
+          gap: 16,
+        }}
+      >
+        <p>Always Touch With Us</p>
+        <p style={{ fontSize: 38, fontWeight: 600 }}>Latest News</p>
+      </div>
+
+      <div
+        style={{
+          gap: 64,
+          fontSize: 16,
+          maxWidth: 1200,
+          display: "grid",
+          margin: "0 auto 100px auto",
+          padding: "0 0 100px 0",
+          alignItems: "center",
+          gridTemplateColumns: "repeat(2,1fr)",
+        }}
+      >
+        <div style={{ gap: 32, display: "grid", height: "fit-content" }}>
+          <img src={image1} alt="image1" style={{ width: "100%" }} />
+        </div>
+
+        <div style={{ gap: 16, display: "grid", height: "fit-content" }}>
+          {dates.map((item) => (
+            <div
+              style={{
+                gap: 32,
+                display: "grid",
+                alignItems: "center",
+                gridTemplateColumns: "auto 1fr 2fr",
+              }}
+            >
+              <p
+                style={{
+                  width: 90,
+                  height: 90,
+                  fontSize: 18,
+                  display: "flex",
+                  borderRadius: 80,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  border: "1px solid" + color.black,
+                }}
+              >
+                {item.year}
+              </p>
+              <hr style={{ width: "100%", height: 0 }} />
+              <p style={{ fontSize: 16, fontWeight: 600, lineHeight: 1.5 }}>
+                {item.event}
+              </p>
             </div>
           ))}
         </div>
@@ -630,7 +798,7 @@ const Footer = () => {
     contactInfo: {
       address:
         "INFINITY TRANSOFT SOLUTION PVT. LTD., Vishwakarma Society, Near Vavdi Water Tank, 150 Feet Ring Road, Rajkot, Gujarat 360004",
-      phoneNumbers: ["(020) 668 355 00", "+91 69000 26000"],
+      phoneNumbers: ["+212 522 456 789"],
       email: "info@itspl.net",
     },
   };
@@ -644,17 +812,14 @@ const Footer = () => {
           maxWidth: 1200,
           display: "grid",
           padding: "16px 0",
-          margin: "0 auto 100px auto",
+          margin: "100px auto",
         }}
       >
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)" }}>
-          <div style={{ gap: 32, display: "grid", height: "fit-content" }}>
-            <p>About Our Company</p>
-            <p style={{ fontSize: 48, fontWeight: 700 }}>
-              Let's connect and <br />
-              Grow Togheter
-            </p>
-          </div>
+          <p style={{ fontSize: 48, fontWeight: 700 }}>
+            Let's connect and <br />
+            Grow Togheter
+          </p>
 
           <div
             style={{
@@ -665,7 +830,7 @@ const Footer = () => {
               justifyContent: "end",
             }}
           >
-            <p
+            <div
               style={{
                 height: 180,
                 width: 180,
@@ -676,8 +841,17 @@ const Footer = () => {
                 border: "1px solid" + color.black,
               }}
             >
-              Contact now
-            </p>
+              <div
+                style={{
+                  gap: 12,
+                  display: "grid",
+                  justifyItems: "center",
+                }}
+              >
+                <p>Contact now</p>
+                <i class="fi fi-ts-arrow-up-right"></i>
+              </div>
+            </div>
           </div>
         </div>
 
